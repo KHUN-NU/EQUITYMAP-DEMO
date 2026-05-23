@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equality Map</title>
+
+    <!-- โหลด Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #map {
+            height: 500px;
+            width: 90%;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thailand Equality Map</h1>
+    <div id="map"></div>
+
+    <!-- โหลด Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+
+        // สร้างแผนที่
+        var map = L.map('map').setView([13.7563, 100.5018], 6);
+
+        // พื้นหลังแผนที่
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: '© OpenStreetMap'
+            }
+        ).addTo(map);
+
+        // กรุงเทพ
+        L.marker([13.7563, 100.5018])
+            .addTo(map)
+            .bindPopup("Bangkok - High Access")
+            .openPopup();
+
+        // เชียงใหม่
+        L.marker([18.7883, 98.9853])
+            .addTo(map)
+            .bindPopup("Chiang Mai - Medium Access");
+
+        // ตราด
+        L.marker([12.2428, 102.5170])
+            .addTo(map)
+            .bindPopup("Trat - Low Access");
+
+    </script>
+
+</body>
+</html>
